@@ -1,6 +1,7 @@
 package com.mrlocalhost.coloredblocks.item;
 
 import com.mrlocalhost.coloredblocks.ColoredBlocks;
+import com.mrlocalhost.coloredblocks.item.custom.ArtistPaletteItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -16,7 +17,7 @@ public class ModItems {
             .tab(ModCreativeTab.COLORED_BLOCKS_TAB)
             .stacksTo(1)));
     public static final RegistryObject<Item> ARTIST_PALETTE = ITEMS.register("artist_palette",
-        () -> new Item(new Item.Properties()
+        () -> new ArtistPaletteItem(new Item.Properties()
             .tab(ModCreativeTab.COLORED_BLOCKS_TAB)
             .stacksTo(1)));
     public static final RegistryObject<Item> CLEANING_CLOTH = ITEMS.register("cleaning_cloth",
