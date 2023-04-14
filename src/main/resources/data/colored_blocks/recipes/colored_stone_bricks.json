@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#D#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "minecraft:stone_bricks"},
+    "D": { "item": "minecraft:white_dye"}
+  },
+  "result": {
+    "item": "colored_blocks:colored_stone_bricks",
+    "count": 8
+  }
+}

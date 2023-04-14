@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": { "tag": "minecraft:wooden_pressure_plates"}
+  },
+  "result": {
+    "item": "colored_blocks:artist_palette"
+  }
+}

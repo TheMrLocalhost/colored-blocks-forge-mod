@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#P#",
+    "###"
+  ],
+  "key": {
+    "#": { "tag": "minecraft:wool"},
+    "P": { "item": "minecraft:paper"}
+  },
+  "result": {
+    "item": "colored_blocks:cleaning_cloth"
+  }
+}
