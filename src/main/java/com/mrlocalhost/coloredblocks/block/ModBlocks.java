@@ -37,7 +37,8 @@ public class ModBlocks {
             BlockBehaviour.Properties properties = BlockBehaviour.Properties
                     .of(material)
                     .strength(strength)
-                    .explosionResistance(resistance);
+                    .explosionResistance(resistance)
+                    .lightLevel(state -> state.getValue(ColoredBlock.LIT) ? 15 : 0);
             if(requiresTool) {
                 properties = properties.requiresCorrectToolForDrops();
             }

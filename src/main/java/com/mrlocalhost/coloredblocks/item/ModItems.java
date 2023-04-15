@@ -2,6 +2,7 @@ package com.mrlocalhost.coloredblocks.item;
 
 import com.mrlocalhost.coloredblocks.ColoredBlocks;
 import com.mrlocalhost.coloredblocks.item.custom.ArtistPaletteItem;
+import com.mrlocalhost.coloredblocks.item.custom.GlowDyeItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -24,6 +25,10 @@ public class ModItems {
         () -> new Item(new Item.Properties()
             .tab(ModCreativeTab.COLORED_BLOCKS_TAB)
             .stacksTo(1)));
+    public static final RegistryObject<Item> GLOW_DYE = ITEMS.register("glow_dye",
+        () -> new GlowDyeItem(new Item.Properties()
+            .tab(ModCreativeTab.COLORED_BLOCKS_TAB)
+            .stacksTo(64)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
