@@ -1,6 +1,7 @@
 package com.mrlocalhost.coloredblocks.block;
 
 import com.mrlocalhost.coloredblocks.ColoredBlocks;
+import com.mrlocalhost.coloredblocks.block.custom.ColoredBlock;
 import com.mrlocalhost.coloredblocks.item.ModCreativeTab;
 import com.mrlocalhost.coloredblocks.item.ModItems;
 import net.minecraft.world.item.BlockItem;
@@ -20,22 +21,30 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, ColoredBlocks.MOD_ID);
 
-    public static final RegistryObject<Block> COLORED_STONE_BRICK = registerBlock("colored_stone_bricks",
-        () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
-            .strength(1.5f)
-            .explosionResistance(6.0f)
-            .requiresCorrectToolForDrops()),
-        ModCreativeTab.COLORED_BLOCKS_TAB);
+    public static final RegistryObject<ColoredBlock> COLORED_STONE_BRICK =
+        registerBlock("colored_stone_bricks", Material.STONE, 1.5f, 6.0f);
+    public static final RegistryObject<ColoredBlock> COLORED_WOOD_PLANK =
+        registerBlock("colored_wood_planks", Material.WOOD,1.5f,2.0f, false);
 
-    public static final RegistryObject<Block> COLORED_WOOD_PLANK = registerBlock("colored_wood_planks",
-        () -> new Block(BlockBehaviour.Properties.of(Material.WOOD)
-            .strength(1.5f)
-            .explosionResistance(2.0f)),
-        ModCreativeTab.COLORED_BLOCKS_TAB);
+    private static <T extends Block> RegistryObject<ColoredBlock>
+    registerBlock(String name, Material material, float strength, float resistance) {
+        return registerBlock(name, material, strength, resistance, true);
+    }
 
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, tab);
+    private static <T extends Block> RegistryObject<ColoredBlock>
+    registerBlock(String name, Material material, float strength, float resistance, boolean requiresTool) {
+        Supplier<ColoredBlock> block = () -> {
+            BlockBehaviour.Properties properties = BlockBehaviour.Properties
+                    .of(material)
+                    .strength(strength)
+                    .explosionResistance(resistance);
+            if(requiresTool) {
+                properties = properties.requiresCorrectToolForDrops();
+            }
+            return new ColoredBlock(properties);
+        };
+        RegistryObject<ColoredBlock> toReturn = BLOCKS.register(name,block);
+        registerBlockItem(name, toReturn, ModCreativeTab.COLORED_BLOCKS_TAB);
         return toReturn;
     }
 
