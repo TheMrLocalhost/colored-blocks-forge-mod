@@ -22,9 +22,20 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, ColoredBlocks.MOD_ID);
 
     public static final RegistryObject<ColoredBlock> COLORED_STONE_BRICK =
-        registerBlock("colored_stone_bricks", Material.STONE, 1.5f, 6.0f);
+        registerBlock(
+            "colored_stone_bricks",
+            Material.STONE,
+            1.5f,
+            6.0f
+        );
     public static final RegistryObject<ColoredBlock> COLORED_WOOD_PLANK =
-        registerBlock("colored_wood_planks", Material.WOOD,1.5f,2.0f, false);
+        registerBlock(
+            "colored_wood_planks",
+            Material.WOOD,
+            1.5f,
+            2.0f,
+            false
+        );
 
     private static <T extends Block> RegistryObject<ColoredBlock>
     registerBlock(String name, Material material, float strength, float resistance) {

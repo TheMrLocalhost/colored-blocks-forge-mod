@@ -2,6 +2,7 @@ package com.mrlocalhost.coloredblocks;
 
 import com.mojang.logging.LogUtils;
 import com.mrlocalhost.coloredblocks.block.ModBlocks;
+import com.mrlocalhost.coloredblocks.block.entity.ModBlockEntities;
 import com.mrlocalhost.coloredblocks.item.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,8 +23,9 @@ public class ColoredBlocks {
 
         ModItems.register(modEventBus); //Register Items
         ModBlocks.register(modEventBus); //Register Blocks
-        modEventBus.addListener(this::commonSetup);
+        ModBlockEntities.register(modEventBus); //Register BlockEntities
 
+        modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
     }
     private void commonSetup(final FMLCommonSetupEvent event) {
