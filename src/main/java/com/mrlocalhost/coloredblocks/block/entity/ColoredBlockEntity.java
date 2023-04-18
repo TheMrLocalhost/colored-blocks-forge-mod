@@ -33,5 +33,4 @@ public class ColoredBlockEntity extends BlockEntity {
         }
     }
 
-
 }
